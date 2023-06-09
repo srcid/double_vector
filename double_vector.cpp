@@ -115,3 +115,10 @@ void DoubleVector::push_front(int n)
 
     return;
 }
+
+void DoubleVector::removeAll()
+{
+    head = capacity / 2;
+    tail = head + 1;
+    size = 0;
+}

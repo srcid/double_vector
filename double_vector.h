@@ -24,4 +24,6 @@ public:
 
     void alloc_left();
     void alloc_right();
+
+    void removeAll();
 };
