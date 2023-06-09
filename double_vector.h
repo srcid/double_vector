@@ -29,6 +29,7 @@ public:
 
     bool empty();
     void print();
+    void printReverse();
 
     int at(int idx);
 };

@@ -140,6 +140,17 @@ void DoubleVector::print()
     cout << endl;
 }
 
+void DoubleVector::printReverse()
+{
+    for (auto i = list.begin() + tail - 1; i > list.begin() + capacity / 2; i--) {
+            cout << *i << " ";
+    }
+    for (auto i = list.begin() + capacity / 2; i > list.begin() + head; i--) {
+            cout << *i << " ";
+    }
+    cout << endl;
+}
+
 int DoubleVector::at(int idx)
 {
     if (idx > size - 1) {
