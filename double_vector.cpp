@@ -6,18 +6,18 @@
 
 using namespace std;
 
-DoubleVector::DoubleVector(): capacity(16), size(0)
+DoubleVector::DoubleVector(): m_capacity(16), m_size(0)
 {
-    head = capacity / 2;
-    tail = head + 1;
-    list = vector<int>(capacity, 0);
+    m_head = m_capacity / 2;
+    m_tail = m_head + 1;
+    m_list = vector<int>(m_capacity, 0);
 }
 
-DoubleVector::DoubleVector(int capacity) : capacity(capacity), size(0)
+DoubleVector::DoubleVector(int capacity) : m_capacity(capacity), m_size(0)
 {
-    head = capacity / 2;
-    tail = head + 1;
-    list = vector<int>(capacity, 0);
+    m_head = capacity / 2;
+    m_tail = m_head + 1;
+    m_list = vector<int>(capacity, 0);
 }
 
 DoubleVector::~DoubleVector()
@@ -25,122 +25,122 @@ DoubleVector::~DoubleVector()
 }
 
 void DoubleVector::right_shift(int n) {
-    rotate(list.rbegin(), list.rbegin() + n, list.rend());
-    head += n;
-    tail += n;
+    rotate(m_list.rbegin(), m_list.rbegin() + n, m_list.rend());
+    m_head += n;
+    m_tail += n;
 
     return;
 }
 
 void DoubleVector::left_shift(int n) {
-    rotate(list.begin(), list.begin() + n, list.end());
-    head -= n;
-    tail -= n;
+    rotate(m_list.begin(), m_list.begin() + n, m_list.end());
+    m_head -= n;
+    m_tail -= n;
 
     return;
 }
 
 int DoubleVector::pop_back() 
 {
-    if (size == 0) {
+    if (m_size == 0) {
         throw runtime_error("The list is empty");
     }
 
-    int ans = list[tail - 1];
-    tail--;
-    size--;
+    int ans = m_list[m_tail - 1];
+    m_tail--;
+    m_size--;
 
     return ans;
 }
 
 int DoubleVector::pop_front() 
 {
-    if (size == 0) {
+    if (m_size == 0) {
         throw runtime_error("The list is empty");
     }
 
-    int ans = list[head + 1];
-    head++;
-    size--;
+    int ans = m_list[m_head + 1];
+    m_head++;
+    m_size--;
 
     return ans;
 }
 
 void DoubleVector::alloc_left() 
 {
-    list.insert(list.begin(), capacity, 0);
-    left_shift(capacity / 2);
-    head += capacity;
-    tail += capacity;
-    capacity *= 2;
+    m_list.insert(m_list.begin(), m_capacity, 0);
+    left_shift(m_capacity / 2);
+    m_head += m_capacity;
+    m_tail += m_capacity;
+    m_capacity *= 2;
 }
 
 void DoubleVector::alloc_right()
 {
-    list.insert(list.end(), capacity, 0);
-    right_shift(capacity / 2);
-    capacity *= 2;
+    m_list.insert(m_list.end(), m_capacity, 0);
+    right_shift(m_capacity / 2);
+    m_capacity *= 2;
 }
 
 void DoubleVector::push_back(int n) 
 {
-    if (tail == capacity) {
-        if (head == -1) { 
+    if (m_tail == m_capacity) {
+        if (m_head == -1) { 
            alloc_right();
         } else { 
             int
-                free_slots_in_left_side = head,
+                free_slots_in_left_side = m_head,
                 delta = free_slots_in_left_side / 2 + 1;
 
                 left_shift(delta);
         }
     }
 
-    list[tail] = n;
-    tail++;
-    size++;
+    m_list[m_tail] = n;
+    m_tail++;
+    m_size++;
     
     return;
 }
 
 void DoubleVector::push_front(int n) 
 {
-    if (head == -1) {
-        if (tail == capacity) { 
+    if (m_head == -1) {
+        if (m_tail == m_capacity) { 
             alloc_left();
         } else { 
             int
-                free_slots_in_right_side = capacity - tail,
+                free_slots_in_right_side = m_capacity - m_tail,
                 delta = free_slots_in_right_side / 2 + 1;
             right_shift(delta);
         }
     }
 
-    list[head] = n;
-    head--;
-    size++;
+    m_list[m_head] = n;
+    m_head--;
+    m_size++;
 
     return;
 }
 
 void DoubleVector::removeAll()
 {
-    head = capacity / 2;
-    tail = head + 1;
-    size = 0;
+    m_head = m_capacity / 2;
+    m_tail = m_head + 1;
+    m_size = 0;
 }
 
 bool DoubleVector::empty()
 {
-    return size == 0;
+    return m_size == 0;
 }
 
 void DoubleVector::print()
 {
-    for (auto i = list.begin() + head + 1; i < list.begin() + capacity / 2; i++) {
+    for (auto i = m_list.begin() + m_head + 1; i < m_list.begin() + m_capacity / 2; i++) {
             cout << *i << " ";
     }
-    for (auto i = list.begin() + capacity / 2; i < list.begin() + tail; i++) {
+    for (auto i = m_list.begin() + m_capacity / 2; i < m_list.begin() + m_tail; i++) {
             cout << *i << " ";
     }
     cout << endl;
@@ -148,10 +148,10 @@ void DoubleVector::print()
 
 void DoubleVector::printReverse()
 {
-    for (auto i = list.begin() + tail - 1; i > list.begin() + capacity / 2; i--) {
+    for (auto i = m_list.begin() + m_tail - 1; i > m_list.begin() + m_capacity / 2; i--) {
             cout << *i << " ";
     }
-    for (auto i = list.begin() + capacity / 2; i > list.begin() + head; i--) {
+    for (auto i = m_list.begin() + m_capacity / 2; i > m_list.begin() + m_head; i--) {
             cout << *i << " ";
     }
     cout << endl;
@@ -159,10 +159,9 @@ void DoubleVector::printReverse()
 
 int DoubleVector::at(int idx)
 {
-    if (idx > size - 1) {
+    if (idx > m_size - 1) {
         return -1;
     }
 
-    return list[head + idx + 1];
-    
+    return m_list[m_head + idx + 1];
 }

@@ -3,11 +3,11 @@
 class DoubleVector
 {
 private:
-    int capacity;
-    int size;
-    int head;
-    int tail;
-    std::vector<int> list;
+    int m_capacity;
+    int m_size;
+    int m_head;
+    int m_tail;
+    std::vector<int> m_list;
 
 public:
     DoubleVector();
