@@ -1,3 +1,4 @@
+#include<iostream>
 #include<algorithm>
 #include<stdexcept>
 
@@ -126,4 +127,15 @@ void DoubleVector::removeAll()
 bool DoubleVector::empty()
 {
     return size == 0;
+}
+
+void DoubleVector::print()
+{
+    for (auto i = list.begin() + head + 1; i < list.begin() + capacity / 2; i++) {
+            cout << *i << " ";
+    }
+    for (auto i = list.begin() + capacity / 2; i < list.begin() + tail; i++) {
+            cout << *i << " ";
+    }
+    cout << endl;
 }

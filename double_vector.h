@@ -28,4 +28,5 @@ public:
     void removeAll();
 
     bool empty();
+    void print();
 };
