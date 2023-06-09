@@ -142,22 +142,16 @@ bool DoubleVector::empty()
 
 void DoubleVector::print()
 {
-    for (auto i = m_list.begin() + m_head + 1; i < m_list.begin() + m_capacity / 2; i++) {
-            cout << *i << " ";
-    }
-    for (auto i = m_list.begin() + m_capacity / 2; i < m_list.begin() + m_tail; i++) {
-            cout << *i << " ";
+    for (auto i = m_list.begin() + m_head + 1; i < m_list.begin() + m_tail; i++) {
+        cout << *i << " ";
     }
     cout << endl;
 }
 
 void DoubleVector::printReverse()
 {
-    for (auto i = m_list.begin() + m_tail - 1; i > m_list.begin() + m_capacity / 2; i--) {
-            cout << *i << " ";
-    }
-    for (auto i = m_list.begin() + m_capacity / 2; i > m_list.begin() + m_head; i--) {
-            cout << *i << " ";
+    for (auto i = m_list.rbegin() + (m_capacity - m_tail); i < m_list.rend() - m_head - 1; i++) {
+        cout << *i << " ";
     }
     cout << endl;
 }
