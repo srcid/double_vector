@@ -1,4 +1,5 @@
 #include<algorithm>
+#include<stdexcept>
 
 #include"double_vector.h"
 
@@ -30,4 +31,30 @@ void DoubleVector::left_shift(int n) {
     tail -= n;
 
     return;
+}
+
+int DoubleVector::pop_back() 
+{
+    if (size == 0) {
+        throw runtime_error("The list is empty");
+    }
+
+    int ans = list[tail - 1];
+    tail--;
+    size--;
+
+    return ans;
+}
+
+int DoubleVector::pop_front() 
+{
+    if (size == 0) {
+        throw runtime_error("The list is empty");
+    }
+
+    int ans = list[head + 1];
+    head++;
+    size--;
+
+    return ans;
 }
