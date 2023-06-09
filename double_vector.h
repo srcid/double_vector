@@ -10,6 +10,7 @@ private:
     std::vector<int> list;
 
 public:
+    DoubleVector();
     DoubleVector(int capacity);
     ~DoubleVector();
 
