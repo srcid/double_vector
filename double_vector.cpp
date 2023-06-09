@@ -58,3 +58,19 @@ int DoubleVector::pop_front()
 
     return ans;
 }
+
+void DoubleVector::alloc_left() 
+{
+    list.insert(list.begin(), capacity, 0);
+    left_shift(capacity / 2);
+    head += capacity;
+    tail += capacity;
+    capacity *= 2;
+}
+
+void DoubleVector::alloc_right()
+{
+    list.insert(list.end(), capacity, 0);
+    right_shift(capacity / 2);
+    capacity *= 2;
+}

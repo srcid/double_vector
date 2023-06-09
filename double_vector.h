@@ -21,4 +21,7 @@ public:
 
     void right_shift(int n);
     void left_shift(int n);
+
+    void alloc_left();
+    void alloc_right();
 };
