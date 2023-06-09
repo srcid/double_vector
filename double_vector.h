@@ -29,4 +29,6 @@ public:
 
     bool empty();
     void print();
+
+    int at(int idx);
 };

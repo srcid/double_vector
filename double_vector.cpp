@@ -139,3 +139,13 @@ void DoubleVector::print()
     }
     cout << endl;
 }
+
+int DoubleVector::at(int idx)
+{
+    if (idx > size - 1) {
+        return -1;
+    }
+
+    return list[head + idx + 1];
+    
+}
