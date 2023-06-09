@@ -122,3 +122,8 @@ void DoubleVector::removeAll()
     tail = head + 1;
     size = 0;
 }
+
+bool DoubleVector::empty()
+{
+    return size == 0;
+}

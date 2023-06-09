@@ -26,4 +26,6 @@ public:
     void alloc_right();
 
     void removeAll();
+
+    bool empty();
 };
