@@ -74,3 +74,44 @@ void DoubleVector::alloc_right()
     right_shift(capacity / 2);
     capacity *= 2;
 }
+
+void DoubleVector::push_back(int n) 
+{
+    if (tail == capacity) {
+        if (head == -1) { 
+           alloc_right();
+        } else { 
+            int
+                free_slots_in_left_side = head,
+                delta = free_slots_in_left_side / 2 + 1;
+
+                left_shift(delta);
+        }
+    }
+
+    list[tail] = n;
+    tail++;
+    size++;
+    
+    return;
+}
+
+void DoubleVector::push_front(int n) 
+{
+    if (head == -1) {
+        if (tail == capacity) { 
+            alloc_left();
+        } else { 
+            int
+                free_slots_in_right_side = capacity - tail,
+                delta = free_slots_in_right_side / 2 + 1;
+            right_shift(delta);
+        }
+    }
+
+    list[head] = n;
+    head--;
+    size++;
+
+    return;
+}
