@@ -130,6 +130,11 @@ void DoubleVector::removeAll()
     m_size = 0;
 }
 
+int DoubleVector::size()
+{
+    return m_size;
+}
+
 bool DoubleVector::empty()
 {
     return m_size == 0;

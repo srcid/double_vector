@@ -28,6 +28,7 @@ public:
 
     void removeAll();
 
+    int size();
     bool empty();
     void print();
     void printReverse();
