@@ -123,6 +123,13 @@ void DoubleVector::push_front(int n)
     return;
 }
 
+void DoubleVector::remove(int idx)
+{
+    const int real_idx = m_head + idx + 1;
+    rotate(m_list.begin() + real_idx, m_list.begin() + real_idx + 1, m_list.end());
+    m_tail -= 1;
+}
+
 void DoubleVector::removeAll()
 {
     m_head = m_capacity / 2;

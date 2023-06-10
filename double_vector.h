@@ -26,6 +26,7 @@ public:
     void alloc_left();
     void alloc_right();
 
+    void remove(int idx);
     void removeAll();
 
     int size();
