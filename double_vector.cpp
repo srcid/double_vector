@@ -171,3 +171,18 @@ int DoubleVector::at(int idx)
 
     return m_list[m_head + idx + 1];
 }
+
+bool DoubleVector::equals(DoubleVector &lst)
+{
+    if (m_size != lst.size()) {
+        return false;
+    }
+
+    for (int i=0; i < m_size; i++) {
+        if (at(i) != lst.at(i)) {
+            return false;
+        }    
+    } 
+    
+    return true;
+}
