@@ -189,8 +189,8 @@ bool DoubleVector::equals(DoubleVector &lst)
 
 void DoubleVector::concat(DoubleVector &lst)
 {
-    while (lst.size()) {
-        push_back(lst.pop_front());
+    for (int i=0; i < lst.size(); i++) {
+        push_back(lst.at(i));
     }
 
     return;
