@@ -166,7 +166,7 @@ void DoubleVector::printReverse()
 int DoubleVector::at(int idx)
 {
     if (idx > m_size - 1) {
-        return -1;
+        throw out_of_range("Index don't exists.");
     }
 
     return m_list[m_head + idx + 1];
