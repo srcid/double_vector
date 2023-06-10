@@ -186,3 +186,12 @@ bool DoubleVector::equals(DoubleVector &lst)
     
     return true;
 }
+
+void DoubleVector::concat(DoubleVector &lst)
+{
+    while (lst.size()) {
+        push_back(lst.pop_front());
+    }
+
+    return;
+}

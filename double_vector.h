@@ -35,6 +35,7 @@ public:
     void printReverse();
 
     int at(int idx);
-
+    
     bool equals(DoubleVector& lst);
+    void concat(DoubleVector& lst);
 };
