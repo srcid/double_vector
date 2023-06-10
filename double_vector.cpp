@@ -124,6 +124,10 @@ void DoubleVector::push_front(int n)
 
 void DoubleVector::remove(int idx)
 {
+    if (idx > m_size - 1) {
+        throw out_of_range("Index don't exists.");
+    }
+    
     const int real_idx = m_head + idx + 1;
     rotate(m_list.begin() + real_idx, m_list.begin() + real_idx + 1, m_list.end());
     m_tail -= 1;
