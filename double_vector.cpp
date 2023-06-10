@@ -91,8 +91,7 @@ void DoubleVector::push_back(int n)
             int
                 free_slots_in_left_side = m_head,
                 delta = free_slots_in_left_side / 2 + 1;
-
-                left_shift(delta);
+            left_shift(delta);
         }
     }
 
