@@ -34,6 +34,14 @@ A operação de deslocamento completo será executada quando ainda existir espa�
 
 Então, a operação de deslocamento deve ser feito para dividir igualmente (se posı́vel) os espaços livres entre o inicio e final do vetor.
 
+Por exemplo, quando $m\_capacity = 16$, $m\_size = 10$, $m\_head = 5$ e $m\_tail = 16$. Veja a figura abaixo.
+
+![Figura 3 - Full tail][list_full_tail]
+
+Nesse caso, como ainda existe espaço na frente do vetor, se a operação *push_front* for executada, então apenas inserirmos sem realizar o deslocamento. Agora se for a operação *push_back*, então devemos executar a operação de deslocamento, já que não existe espaço disponı́vel no final do vetor. Vamos dividir igualmente, se possı́vel, os espaços livres. Como temos 6 espaços livres na frente do vetor, iremos deslocar os elementos no vetor em 3 posições para a esquerda, para liberar 3 posições atrás do vetor.
+
+![Figura 4 - Deslocamento à esquerda][list_left_displacement]
+
 ### Deslocamento parcial
 
 O deslocamento parcial será executada quando um elemento da lista for removido. Nesse caso, desvemos deslocar em uma posição apenas uma parte dos elementos do vetor, os elementos que estão a esquerda ou direita do elemento a ser removido. Observe que dentro do contexto da lista sequencial dupla, podemos deslocar esses elementos tanto
@@ -89,3 +97,5 @@ validos. Caso contrário, retorna -1. Obrigatoriamente deve ser O(1).
 
 [list_init]: ./assets/atividade_mae-configuracao_inicial.svg
 [list_first_insertions]: ./assets/atividade_mae-primeiras_insercoes.svg
+[list_full_tail]: ./assets/atividade_mae-full_tail.svg
+[list_left_displacement]: ./assets/atividade_mae-deslocamento_a_esquerda.svg
