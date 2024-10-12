@@ -10,6 +10,17 @@ Para isso, essa nova estrutura de dados (ED) terá dois novos atributos, dois in
 
 Vejamos a configuração inicial dessa lista. m capacity será inicialmente igual a 16 e *m_head* será igual a 7 e *m_tail* igual a 8. Toda vez que push f ront for executada, o elemento será adicionado no ı́ndice *m_head* e, depois ele será decrementado. De forma semelhante, toda vez que push back for executada, o elemento será adicionado no ı́ndice *m_tail* e, depois ele será incrementado. Dessa forma, os elementos serão adicionados do meio para os extremos do vetor e a complexidade média das operações push front e push back será $O(1)$.
 
+![Figura 1 - Configuração inicial da lista sequencial dupla][list_init]
+
+Suponha que as funções sejam executadas nesta sequência: $push\_back(78)$, $push\_front(55)$, $push\_back(93)$,$push\_back(20)$, então o vertor da lista ficará comforme a figura abaixo:
+
+![Figura 2 - Lista após inserções][list_first_insertions]
+
+> [!NOTE]
+> Como citado anteriormente, na lista sequencial normal, o índice do elemento na lista é o mesmo do vetor, ou seja, o elemento de índice 4 na lista está armazenado no índice 7 do vetor. O mesmo não ocorre na lista sequencial dupla. Tirando como exemplo a figura acima, o elemento de indice 0 da lista é o valor 55, que deve estar no índice 7 do vetor. O elemento de índice 3 da lista é o valor 20, que está no indice 10 do vetor.
+
+Continuaremos a ter as operações de deslocamento e redirecionamento. Elas serão executadas nas seguintes situações.
+
 ## Deslocamento
 
 Teremos duas operações de deslocamento, que chamaremos de deslocamento completo e deslocamento parcial. Vejam abaixo a descrição de ambas e quando usa-las.
@@ -18,10 +29,8 @@ Teremos duas operações de deslocamento, que chamaremos de deslocamento complet
 
 A operação de deslocamento completo será executada quando ainda existir espaço disponı́vel no vetor, e quando uma das seguintes situações abaixo ocorrer:
 
-1. Quando a operação de push_front for executada e não tiver espaço disponı́vel no
-inı́cio do vetor;
-2. Quando a operação de push_back for executada e não houver espaço disponı́vel no
-final do vetor.
+1. Quando a operação de push_front for executada e não tiver espaço disponı́vel no inı́cio do vetor;
+2. Quando a operação de push_back for executada e não houver espaço disponı́vel no final do vetor.
 
 Então, a operação de deslocamento deve ser feito para dividir igualmente (se posı́vel) os espaços livres entre o inicio e final do vetor.
 
@@ -76,3 +85,7 @@ validos. Caso contrário, retorna -1. Obrigatoriamente deve ser O(1).
 - `void concat(DoubleVector& lst)`: Concatena a lista atual com a lista lst passada por parâmetro. A lista lst não é modificada nessa operação. Os elementos de lst serão adicionados na ordem no final da lista do objeto da função.
 
 - `bool equal(DoubleVector& lst)`: Determina se a lista passada por parâmetro é igual à lista em questão. Duas listas são iguais se elas possuem o mesmo tamanho e o valor do k-ésimo elemento da primeira lista é igual ao k-ésimo elemento da segunda lista
+
+
+[list_init]: ./assets/atividade_mae-configuracao_inicial.svg
+[list_first_insertions]: ./assets/atividade_mae-primeiras_insercoes.svg
