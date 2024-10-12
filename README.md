@@ -44,10 +44,13 @@ Nesse caso, como ainda existe espaço na frente do vetor, se a operação *push_
 
 ### Deslocamento parcial
 
-O deslocamento parcial será executada quando um elemento da lista for removido. Nesse caso, desvemos deslocar em uma posição apenas uma parte dos elementos do vetor, os elementos que estão a esquerda ou direita do elemento a ser removido. Observe que dentro do contexto da lista sequencial dupla, podemos deslocar esses elementos tanto
-para a esquerda quanto para a direita.
+O deslocamento parcial será executada quando um elemento da lista for removido. Nesse caso, desvemos deslocar em uma posição apenas uma parte dos elementos do vetor, os elementos que estão a esquerda ou direita do elemento a ser removido. Observe que dentro do contexto da lista sequencial dupla, podemos deslocar esses elementos tanto para a esquerda quanto para a direita.
 
-O deslocamento será feito na direção que tiver menos espaços disponı́veis, ou seja, se na frente do vetor tiver menos espaços disponı́veis do que atrás, então iremos deslocar os elementos que estão a esquerda do elemento removido para a direita em uma posição. Caso contrário, se for atrás do vetor que tiver menos espaço, então iremos deslocar os elementos que estão a direita do elemento removido para a esquerda em uma posição. 
+O deslocamento será feito na direção que tiver menos espaços disponı́veis, ou seja, se na frente do vetor tiver menos espaços disponı́veis do que atrás, então iremos deslocar os elementos que estão a esquerda do elemento removido para a direita em uma posição. Caso contrário, se for atrás do vetor que tiver menos espaço, então iremos deslocar os elementos que estão a direita do elemento removido para a esquerda em uma posição.
+
+Por exemplo, imagine que na lista da segunda figura, removamos o elemento 78. Como atrás do vetor há 5 espaços disponı́veis e na frente 7, então iremos fazer o deslocamento dos elementos à direita do 78 em uma posição à esquerda. Dessa forma, o espaço disponı́vel atrás aumenta em uma unidade, conforme podemos vê na figura abaixo.
+
+![Figura 5 - Remoção][list_remove]
 
 ### Redimensionamento
 
@@ -94,8 +97,8 @@ validos. Caso contrário, retorna -1. Obrigatoriamente deve ser O(1).
 
 - `bool equal(DoubleVector& lst)`: Determina se a lista passada por parâmetro é igual à lista em questão. Duas listas são iguais se elas possuem o mesmo tamanho e o valor do k-ésimo elemento da primeira lista é igual ao k-ésimo elemento da segunda lista
 
-
 [list_init]: ./assets/atividade_mae-configuracao_inicial.svg
 [list_first_insertions]: ./assets/atividade_mae-primeiras_insercoes.svg
 [list_full_tail]: ./assets/atividade_mae-full_tail.svg
 [list_left_displacement]: ./assets/atividade_mae-deslocamento_a_esquerda.svg
+[list_remove]: ./assets/atividade_mae-remove.svg
